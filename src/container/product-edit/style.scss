@@ -1,0 +1,105 @@
+// Подключаем service через use
+
+@use '../../lib/service.scss' as s;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: s.space(4);
+  gap: s.space(8);
+
+  &__title {
+    font-size: s.size(8); // Отвечает за размер шрифта
+    color: s.color(colorBlueDark);
+    font-weight: bold; // Отвечает за толщину линии букв
+  }
+
+  &__content {
+    display: grid;
+    gap: s.space(6);
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: s.space(2);
+  }
+
+  &__info {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__label {
+    font-size: 12px;
+  }
+
+  &__edit {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  &__enter {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  &__input {
+    border: 1px solid s.color('light');
+    padding: s.space(2);
+  }
+
+  &__description {
+    border: 1px solid s.color('light');
+    padding: s.space(1);
+  }
+
+  &__button {
+    color: s.color('light');
+    border: 1px solid s.color('light');
+    padding: s.space(2);
+    border-radius: 4px;
+
+    justify-items: center;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .blue {
+    background-color: blue;
+  }
+
+  .red {
+    background-color: red;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(10);
+}
+
+.nav {
+  display: flex;
+  position: absolute;
+  bottom: 0%;
+
+  &__button {
+    margin: 5px;
+    padding: 1px 10px 1px 10px;
+    color: s.color('light');
+    background-color: s.color(colorBlueDark);
+
+    border: 1px solid s.color(colorBlack);
+    border-color: s.color(colorBlack);
+    border-radius: 5px;
+
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+  }
+}

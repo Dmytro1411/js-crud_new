@@ -1,0 +1,22 @@
+@use '../../lib/service.scss' as s;
+
+.nav {
+  display: flex;
+  position: absolute;
+  bottom: 0%;
+
+  &__button {
+    margin: 5px;
+    padding: 1px 10px 1px 10px;
+    color: s.color('light');
+    background-color: s.color(colorBlueDark);
+
+    border: 1px solid s.color(colorBlack);
+    border-color: s.color(colorBlack);
+    border-radius: 5px;
+
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+  }
+}

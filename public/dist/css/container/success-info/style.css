@@ -1,0 +1,19 @@
+.nav {
+  display: flex;
+  position: absolute;
+  bottom: 0%;
+}
+.nav__button {
+  margin: 5px;
+  padding: 1px 10px 1px 10px;
+  color: #ddd;
+  background-color: blue;
+  border: 1px solid black;
+  border-color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

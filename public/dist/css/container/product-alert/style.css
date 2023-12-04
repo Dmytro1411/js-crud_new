@@ -1,0 +1,51 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 32px;
+}
+.form__enter {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form__label {
+  font-size: 12px;
+}
+.form__button {
+  display: flex;
+  align-self: end;
+  color: #ddd;
+  background-color: blue;
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  width: max-content;
+}
+
+.nav {
+  display: flex;
+  position: absolute;
+  bottom: 0%;
+}
+.nav__button {
+  margin: 5px;
+  padding: 1px 10px 1px 10px;
+  color: #ddd;
+  background-color: blue;
+  border: 1px solid black;
+  border-color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

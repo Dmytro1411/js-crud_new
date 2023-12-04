@@ -1,0 +1,128 @@
+// Подключаем service через use
+
+@use '../../lib/service.scss' as s;
+
+// Создаем стилизацию
+mark {
+  width: max-content;
+  max-height: 100%;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  //   width: auto;
+  min-height: 100%;
+  padding: s.space(4);
+  gap: s.space(8);
+
+  &__title {
+    font-size: s.size(8);
+    color: s.color(colorBlueDark);
+    font-weight: bold;
+  }
+
+  &__field {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: s.space(9) s.space(4);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: s.space(6);
+    padding: s.space(2.5);
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+
+    border-radius: s.size(2.5);
+  }
+
+  &__name {
+    font-size: s.size(4);
+    font-weight: bold;
+  }
+
+  &__description {
+    font-size: s.size(3);
+    display: flex;
+    height: -webkit-fill-available;
+  }
+
+  &__id {
+    font-size: s.size(3);
+    color: grey;
+  }
+
+  &__price {
+    position: absolute;
+    bottom: 0;
+    font-size: s.size(4);
+    font-weight: bold;
+    padding-bottom: s.space(5);
+  }
+
+  &__label {
+    position: relative;
+  }
+
+  &__button {
+    display: flex;
+    font-size: s.size(3);
+    color: s.color('colorBlue');
+
+    padding: s.space(5);
+
+    text-decoration: none;
+
+    justify-content: flex-end;
+    cursor: pointer;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: s.space(10);
+}
+
+.nav {
+  display: flex;
+  position: absolute;
+  bottom: 0%;
+
+  &__button {
+    margin: 5px;
+    padding: 1px 10px 1px 10px;
+    color: s.color('light');
+    background-color: s.color(colorBlueDark);
+
+    border: 1px solid s.color(colorBlack);
+    border-color: s.color(colorBlack);
+    border-radius: 5px;
+
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+  }
+}
+
+// .nav__create {
+//   display: flex;
+//   position: absolute;
+//   bottom: 0%;
+
+//   &__button {
+//     margin: 5px;
+//     padding: 1px 10px 1px 10px;
+//     color: s.color('light');
+//     background-color: s.color(colorBlueDark);
+
+//     border: 1px solid s.color(colorBlack);
+//     border-color: s.color(colorBlack);
+//     border-radius: 5px;
+
+//     text-decoration: none;
+//     text-align: center;
+//     cursor: pointer;
+//   }
+// }

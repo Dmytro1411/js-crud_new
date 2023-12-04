@@ -1,0 +1,88 @@
+mark {
+  width: max-content;
+  max-height: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 16px;
+  gap: 32px;
+}
+.form__title {
+  font-size: 32px;
+  color: blue;
+  font-weight: bold;
+}
+.form__field {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px 16px;
+}
+.form__info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 10px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+.form__name {
+  font-size: 16px;
+  font-weight: bold;
+}
+.form__description {
+  font-size: 12px;
+  display: flex;
+  height: -webkit-fill-available;
+}
+.form__id {
+  font-size: 12px;
+  color: grey;
+}
+.form__price {
+  position: absolute;
+  bottom: 0;
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+.form__label {
+  position: relative;
+}
+.form__button {
+  display: flex;
+  font-size: 12px;
+  color: steelblue;
+  padding: 20px;
+  text-decoration: none;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.nav {
+  display: flex;
+  position: absolute;
+  bottom: 0%;
+}
+.nav__button {
+  margin: 5px;
+  padding: 1px 10px 1px 10px;
+  color: #ddd;
+  background-color: blue;
+  border: 1px solid black;
+  border-color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

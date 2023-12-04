@@ -1,0 +1,87 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 32px;
+}
+.form__title {
+  font-size: 32px;
+  color: blue;
+  font-weight: bold;
+}
+.form__content {
+  display: grid;
+  gap: 24px;
+}
+.form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.form__info {
+  font-size: 16px;
+  font-weight: bold;
+}
+.form__label {
+  font-size: 12px;
+}
+.form__edit {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.form__enter {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.form__input {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.form__description {
+  border: 1px solid #ddd;
+  padding: 4px;
+}
+.form__button {
+  color: #ddd;
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 4px;
+  justify-items: center;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.form .blue {
+  background-color: blue;
+}
+.form .red {
+  background-color: red;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.nav {
+  display: flex;
+  position: absolute;
+  bottom: 0%;
+}
+.nav__button {
+  margin: 5px;
+  padding: 1px 10px 1px 10px;
+  color: #ddd;
+  background-color: blue;
+  border: 1px solid black;
+  border-color: black;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */
