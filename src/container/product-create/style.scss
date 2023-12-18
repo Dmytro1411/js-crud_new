@@ -8,6 +8,12 @@
   padding: s.space(4); // Отвечает за отступы
   gap: s.space(8);
 
+  &__enter {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: s.space(2.5);
+  }
+
   &__title {
     font-size: s.size(8); // Отвечает за размер шрифта
     color: s.color(colorBlueDark);
@@ -21,7 +27,7 @@
 
   &__field {
     display: flex;
-    flex-direction: column; // Этим мы размещаем поле-ввода непосредственно под названием этого поля
+    flex-direction: column;
     gap: s.space(2);
   }
 
@@ -32,12 +38,6 @@
 
   &__label {
     font-size: 12px;
-  }
-
-  &__enter {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
   }
 
   &__input {

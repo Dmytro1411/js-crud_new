@@ -6,7 +6,7 @@
 	<section>
 		<div class="form">
 			<h1 class="form__title">Список товаров</h1>
-			{{#with data.products}}
+			{{#with data}}
 			{{#if isEmpty}}
 			<mark>Список продуктов пустой</mark>
 			<div class="nav">
@@ -22,6 +22,7 @@
 						<span class="form__name">{{name}}</span>
 						<span class="form__description">{{description}}</span>
 						<div class="form__id">ID: {{id}}</div>
+						{{!-- <div class="form__id">TIME: {{time}}</div> --}}
 						<div class="form__label">
 							<span class="form__price">{{price}}₴</span>
 							<a href="/product-edit?id={{id}}" class="form__button">Редактировать</a>

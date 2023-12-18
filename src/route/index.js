@@ -159,20 +159,19 @@ router.post('/user-update', function (req, res) {
 // ================================================================
 
 class Product {
-  static #list = []
-
   constructor(name, price, description) {
     this.name = name
     this.price = price
     this.description = description
     this.id = new Date().getTime()
+    // this.time = new Date()
   }
-
-  verifyId = (id) => this.id === id
 
   static add = (product) => {
     this.#list.push(product)
   }
+
+  static #list = [] //Это this.#list который мы используем в фунгкциях из class Product
 
   static getList = () => this.#list
 
@@ -191,39 +190,33 @@ class Product {
     }
   }
 
-  static editById = (id, data) => {
+  static updateById = (id, data) => {
     let product = this.getById(id)
+    let { name } = data
 
     if (product) {
-      this.update(product, data)
+      if (name) {
+        product.name = name
+      }
+
       return true
     } else {
       return false
     }
   }
-
-  static edit = (product, { name, price, description }) => {
-    if (name) {
-      product.name = name
-    }
-    if (price) {
-      product.price = price
-    }
-    if (description) {
-      product.description = description
-    }
-  }
 }
 // ================================================================
 
-// router.get Створює нам один ентпоїнт
+// Эндпоинт для отображения отдельной страницы для ввода информации об создаваемолм продукте
 
 // ↙️ тут вводимо шлях (PATH) до сторінки
 router.get('/product-create', function (req, res) {
-  // res.render генерує нам HTML сторінку
-  let list = Product.getList()
+  /* Этим мы говорим, что в переменную list в этом эндпоинте мы передаем 
+  данные из созданного через конструктор массива static #list, находящегося в class Product  */
+  let list = Product.getList() // Так мы обращаемся к функции getList() из class Product
 
-  // ↙️ cюди вводимо назву файлу з сontainer
+  // res.render генерує нам HTML сторінку
+  // ↙️ cюди вводимо назву файлу з сontainer, в котором хранится информация, которая будет отображаться на выводимой странице
   res.render('product-create', {
     // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'product-create',
@@ -240,9 +233,9 @@ router.post('/product-create', function (req, res) {
   let { name, price, description } = req.body
 
   // Создаем новый продукт
-  let product = new Product(name, price, description)
+  let product = new Product(name, price, description) // который с помощью функции ниже передаем в class Product
 
-  // Куда передаем необходимые данные
+  // Выражение, которое с помощью описанной в class Product функции add передает вводимые на странице данные в class Product
   Product.add(product)
 
   //Смотрим что у нас в массиве
@@ -259,42 +252,54 @@ router.post('/product-create', function (req, res) {
 router.get('/product-edit', function (req, res) {
   let { id } = req.query
 
-  let list = Product.getList(Number(id))
+  let product = Product.getById(Number(id))
 
-  //   console.log(list)
-
-  res.render('product-edit', {
-    style: 'product-edit',
-    data: {
-      products: {
-        list,
-        // isEmpty: list.length === 0,
+  if (product) {
+    return res.render('product-edit', {
+      style: 'product-edit',
+      data: {
+        name: product.name,
+        price: product.price,
+        id: product.id,
+        description: product.description,
       },
-    },
-  })
-  // ↑↑ сюди вводимо JSON дані
+    })
+  } else {
+    return res.render('product-alert', {
+      style: 'product-alert',
+      info: 'Продукт с таким ID не найден',
+    })
+  }
 })
+
+// ↑↑ сюди вводимо JSON дані
 
 // ================================================================
 
 router.post('/product-edit', function (req, res) {
-  let { name, price, description, id } = req.body
+  // res.render генерує нам HTML сторінку
+  let { id, name, price, description } = req.body
 
-  let result = false
-
-  let product = Product.getById(Number(id))
-
-  if (product.verifyId(id)) {
-    Product.edit(product, { name, price, description })
-    result = true
-  }
-
-  res.render('product-edit', {
-    style: 'product-edit',
-    info: result
-      ? 'Товар успешно обнавлен'
-      : 'Произошла ошибка',
+  let product = Product.updateById(Number(id), {
+    name,
+    price,
+    description,
   })
+
+  console.log(id)
+  console.log(product)
+
+  if (product) {
+    res.render('product-alert', {
+      style: 'product-alert',
+      info: 'Информация об товаре обновлена',
+    })
+  } else {
+    res.render('product-alert', {
+      style: 'product-alert',
+      info: 'Произошла ошибка',
+    })
+  }
 })
 
 // ================================================================
@@ -308,15 +313,77 @@ router.get('/product-list', function (req, res) {
     // вказуємо назву папки контейнера, в якій знаходяться наші стилі
     style: 'product-list',
 
+    // Код отвечающий за сообщение, что список пустой
     data: {
-      products: {
-        list,
-        isEmpty: list.length === 0,
-      },
+      list,
+      isEmpty: list.length === 0,
     },
   })
   // ↑↑ сюди вводимо JSON дані
 })
+
+// ================================================================
+
+router.post('/product-list', function (req, res) {
+  // res.render генерує нам HTML сторінку
+  let { id, name, price, description } = req.body
+
+  let list = Product.getList(id, name, price, description)
+
+  // ↙️ cюди вводимо назву файлу з сontainer
+  res.render('product-list', {
+    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
+    style: 'product-list',
+
+    // Код отвечающий за сообщение, что список пустой
+    data: {
+      list,
+      isEmpty: list.length === 0,
+    },
+  })
+  // ↑↑ сюди вводимо JSON дані
+})
+
+// ================================================================
+
+router.get('/product-delete', function (req, res) {
+  let { id } = req.query
+
+  Product.deleteById(Number(id))
+
+  res.render('product-alert', {
+    style: 'product-alert',
+    info: 'Пользователь удален',
+  })
+})
+
+// ================================================================
+
+// router.post('/product-delete', function (req, res) {
+// 	// res.render генерує нам HTML сторінку
+// 	let { id, name, price, description } = req.body
+
+// 	let product = Product.updateById(Number(id), {
+// 	  name,
+// 	  price,
+// 	  description,
+// 	})
+
+// 	console.log(id)
+// 	console.log(product)
+
+// 	if (product) {
+// 	  res.render('product-alert', {
+// 		style: 'product-alert',
+// 		info: 'Информация об товаре обновлена',
+// 	  })
+// 	} else {
+// 	  res.render('product-alert', {
+// 		style: 'product-alert',
+// 		info: 'Произошла ошибка',
+// 	  })
+// 	}
+//   })
 
 // ================================================================
 

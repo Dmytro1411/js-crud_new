@@ -11,8 +11,8 @@
 					<div class="form__field">
 						<div class="form__info">Информация про товар</div>
 					</div>
-					{{#with data.products}}
-					{{#each list}}
+					{{#with data}}
+					{{!-- {{#each product}} --}}
 					<div class="form__edit">
 
 						<div class="form__field">
@@ -35,7 +35,7 @@
 							class="form__description">{{description}}</textarea>
 						{{!-- <input type="text" id="description" class="form__input" value="{{description}}"> --}}
 					</div>
-					{{/each}}
+					{{!-- {{/each}} --}}
 					{{/with}}
 
 					<div class="form__enter">

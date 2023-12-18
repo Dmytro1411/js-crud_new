@@ -4,6 +4,11 @@
   padding: 16px;
   gap: 32px;
 }
+.form__enter {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
 .form__title {
   font-size: 32px;
   color: blue;
@@ -24,11 +29,6 @@
 }
 .form__label {
   font-size: 12px;
-}
-.form__enter {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
 }
 .form__input {
   border: 1px solid #ddd;

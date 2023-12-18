@@ -19,6 +19,8 @@
     display: flex;
     flex-direction: column;
     gap: s.space(2);
+
+    justify-content: center;
   }
 
   &__label {
@@ -31,13 +33,14 @@
     color: s.color('light');
     background-color: s.color(colorBlueDark);
     border: 1px solid s.color('light');
-    padding: s.space(2);
+    padding: s.space(1);
     border-radius: s.size(2);
 
     text-decoration: none;
     cursor: pointer;
 
     width: max-content;
+    font-size: 14px;
   }
 }
 
