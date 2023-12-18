@@ -315,30 +315,10 @@ router.get('/product-list', function (req, res) {
 
     // Код отвечающий за сообщение, что список пустой
     data: {
-      list,
-      isEmpty: list.length === 0,
-    },
-  })
-  // ↑↑ сюди вводимо JSON дані
-})
-
-// ================================================================
-
-router.post('/product-list', function (req, res) {
-  // res.render генерує нам HTML сторінку
-  let { id, name, price, description } = req.body
-
-  let list = Product.getList(id, name, price, description)
-
-  // ↙️ cюди вводимо назву файлу з сontainer
-  res.render('product-list', {
-    // вказуємо назву папки контейнера, в якій знаходяться наші стилі
-    style: 'product-list',
-
-    // Код отвечающий за сообщение, что список пустой
-    data: {
-      list,
-      isEmpty: list.length === 0,
+      products: {
+        list,
+        isEmpty: list.length === 0,
+      },
     },
   })
   // ↑↑ сюди вводимо JSON дані

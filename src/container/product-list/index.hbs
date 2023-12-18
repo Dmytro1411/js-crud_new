@@ -6,46 +6,34 @@
 	<section>
 		<div class="form">
 			<h1 class="form__title">Список товаров</h1>
-			{{#with data}}
+			{{#with data.products}}
 			{{#if isEmpty}}
 			<mark>Список продуктов пустой</mark>
-			<div class="nav">
-				<a href="/" class="nav__button">Вернуться на начальную страницу</a>
-				<a href="/user" class="nav__button">Перейти на User</a>
-				<a href="/product-create" class="nav__button">Перейти на Product</a>
-			</div>
-			{{else}}
-			<form action="/product-edit" method="post">
-				<div class="form__field">
-					{{#each list}}
-					<div class="form__info">
-						<span class="form__name">{{name}}</span>
-						<span class="form__description">{{description}}</span>
-						<div class="form__id">ID: {{id}}</div>
-						{{!-- <div class="form__id">TIME: {{time}}</div> --}}
-						<div class="form__label">
-							<span class="form__price">{{price}}₴</span>
-							<a href="/product-edit?id={{id}}" class="form__button">Редактировать</a>
-						</div>
-					</div>
-					{{/each}}
-				</div>
-			</form>
 
-			<div class="nav">
-				<a href="/" class="nav__button">Вернуться на начальную страницу</a>
-				<a href="/user" class="nav__button">Перейти на User</a>
-				<a href="/product-create" class="nav__button">Перейти на Product</a>
+			{{else}}
+			{{#each list}}
+			<div class="form__info">
+				<div class="form__name">{{name}}</div>
+				<div class="form__description">{{description}}</div>
+				<div class="form__id">ID: {{id}}</div>
+				{{!-- <div class="form__id">TIME: {{time}}</div> --}}
+				<div class="form__label">
+					<div class="form__price">{{price}}₴</div>
+					<button class="form__button"><a href="/product-edit?id={{id}}">Редактировать</a></button>
+				</div>
 			</div>
+			{{/each}}
 			{{/if}}
 			{{/with}}
 		</div>
 	</section>
-
-
-
-
 </main>
+
+<div class="nav">
+	<a href="/" class="nav__button">Вернуться на начальную страницу</a>
+	<a href="/user" class="nav__button">Перейти на User</a>
+	<a href="/product-create" class="nav__button">Перейти на Product</a>
+</div>
 
 
 

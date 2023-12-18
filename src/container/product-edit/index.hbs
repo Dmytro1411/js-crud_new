@@ -6,7 +6,7 @@
 	<section>
 		<div class="form">
 			<h1 class="form__title">Редактирование товара</h1>
-			<form method="post" action="/product-edit?id={{id}}">
+			<form method="post" action="/product-edit">
 				<div class="form__content">
 					<div class="form__field">
 						<div class="form__info">Информация про товар</div>
@@ -36,12 +36,13 @@
 						{{!-- <input type="text" id="description" class="form__input" value="{{description}}"> --}}
 					</div>
 					{{!-- {{/each}} --}}
-					{{/with}}
+
 
 					<div class="form__enter">
 						<button class="form__button blue">Сохранить обновление</button>
-						<button class="form__button red">Удалить товар</button>
+						<a href="/product-delete?id={id}}" class="form__button red"">Удалить товар</a>
 					</div>
+					{{/with}}
 
 				</div>
 			</form>
@@ -49,11 +50,11 @@
 
 	</section>
 	<section>
-		<div class="nav">
-			<a href="/" class="nav__button">Вернуться на начальную страницу</a>
-			<a href="/user" class="nav__button">Перейти на User</a>
-			<a href="/product-create" class="nav__button">Перейти на Product</a>
-		</div>
+		<div class=" nav">
+							<a href="/" class="nav__button">Вернуться на начальную страницу</a>
+							<a href="/user" class="nav__button">Перейти на User</a>
+							<a href="/product-create" class="nav__button">Перейти на Product</a>
+					</div>
 	</section>
 
 
