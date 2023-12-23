@@ -21,7 +21,7 @@ mark {
     font-weight: bold;
   }
 
-  &__field {
+  &__block {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: s.space(9) s.space(4);
@@ -55,13 +55,13 @@ mark {
 
   &__price {
     position: absolute;
-    bottom: 0;
     font-size: s.size(4);
     font-weight: bold;
-    padding-bottom: s.space(5);
+    padding: s.space(5) s.space(0) s.space(5) s.space(0);
   }
 
   &__label {
+    display: grid;
     position: relative;
   }
 
@@ -70,13 +70,17 @@ mark {
     font-size: s.size(3);
     color: s.color('colorBlue');
 
-    padding: s.space(5);
+    padding: s.space(5) s.space(0) s.space(5) s.space(0);
 
-    text-decoration: none;
+    font-weight: bold;
 
     justify-content: flex-end;
     cursor: pointer;
   }
+}
+
+a {
+  text-decoration: none;
 }
 
 main {

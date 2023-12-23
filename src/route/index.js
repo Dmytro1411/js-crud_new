@@ -159,6 +159,8 @@ router.post('/user-update', function (req, res) {
 // ================================================================
 
 class Product {
+  static #list = [] //Это this.#list который мы используем в функциях из class Product
+
   constructor(name, price, description) {
     this.name = name
     this.price = price
@@ -170,8 +172,6 @@ class Product {
   static add = (product) => {
     this.#list.push(product)
   }
-
-  static #list = [] //Это this.#list который мы используем в фунгкциях из class Product
 
   static getList = () => this.#list
 
@@ -192,11 +192,19 @@ class Product {
 
   static updateById = (id, data) => {
     let product = this.getById(id)
-    let { name } = data
+    let { name, price, description } = data
 
     if (product) {
       if (name) {
         product.name = name
+      }
+
+      if (price) {
+        product.price = price
+      }
+
+      if (description) {
+        product.description = description
       }
 
       return true

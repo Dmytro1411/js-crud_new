@@ -15,7 +15,7 @@ mark {
   color: blue;
   font-weight: bold;
 }
-.form__field {
+.form__block {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 36px 16px;
@@ -43,22 +43,26 @@ mark {
 }
 .form__price {
   position: absolute;
-  bottom: 0;
   font-size: 16px;
   font-weight: bold;
-  padding-bottom: 20px;
+  padding: 20px 0px 20px 0px;
 }
 .form__label {
+  display: grid;
   position: relative;
 }
 .form__button {
   display: flex;
   font-size: 12px;
   color: steelblue;
-  padding: 20px;
-  text-decoration: none;
+  padding: 20px 0px 20px 0px;
+  font-weight: bold;
   justify-content: flex-end;
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
 }
 
 main {
